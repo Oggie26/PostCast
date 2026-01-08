@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.podcast.proto.user";
+option java_outer_classname = "UserProto";
+
+package user;
+
+service UserService {
+  rpc CreateUserProfile (CreateProfileRequest) returns (CreateProfileResponse);
+}
+
+message CreateProfileRequest {
+  string accountId = 1;
+  string email = 2;
+  string fullName = 3;
+}
+
+message CreateProfileResponse {
+  bool success = 1;
+  string profileId = 2;
+  string message = 3;
+}
